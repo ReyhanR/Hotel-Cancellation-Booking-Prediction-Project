@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASHBOARD</title>
+    <!--<link rel="stylesheet" href="../static/bootstrap.css">-->
+    <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+    <style>
+        .col-form-label-lg {
+            background: rgb(230, 229, 229);
+            margin-left: 24%;
+        }
+
+        .custom-select-lg {
+            margin-left: 50%;
+        }
+
+        .form-control-lg {
+            margin-left: 50%;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 20px;
+            width: 900px;
+            margin-left: 490px;   
+        }
+
+        .Myjumbotron {
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center display-4 my-5 rounded bg-primary">HOTEL CANCELLATION BOOKING DASHBOARD</h1>
+    </div>
+    <div class="container rounded">
+        <!-- Navigasi -->
+            <ul class="nav nav-pills nav-fill my-4 bg-light rounded">
+                <li class="nav-item font-weight-bold">
+                    <a class="nav-link text-dark lead" href="{{ url_for('index')}}">Home</a>
+                </li>
+                <li class="nav-item font-weight-bold">
+                    <a class="nav-link text-dark lead" href="{{ url_for('visual') }}">Visualization</a>
+                </li>
+            </ul>
+    </div>
+
+    <div class="jumbotron  Myjumbotron">
+        <div class="container rounded">
+          <h5 class="display-5">Hello... I am Reyhan Ryanafi, a data science student at Purwadhika Startup School Bekasi.
+            I made this dashboard to fulfill the final project at Purwadhika. </h5>
+          <p class="lead">This project itself aims to predict the possibility of a hotel customer to cancel a booking he/she has made. 
+            Especially for the country of Portugal, because it is related to the data that I got for this project.</p>
+        </div>
+      </div>
+
+<!-- Content -->
+<div class="mt-5">
+    {% block content %}
+        
+    {% endblock %}
+</div>
+    
+    <!-- Form Analisa-->
+    <form method = 'POST' action="{{ url_for('predict')}}" id="form">
+        <div class="form-group row w-auto">
+          <label class="col-6 col-form-label-lg text-center rounded" for="country">Country</label> 
+          <div class="col-6">
+            <select id="country" name="country" required="required" class="custom-select custom-select-lg">
+              <option value="135">Portugal</option>
+              <option value="59">Great Britain</option>
+              <option value="56">France</option>
+              <option value="51">Spain</option>
+              <option value="43">Germany</option>
+              <option value="81">Italy</option>
+              <option value="76">Ireland</option>
+              <option value="15">Belgium</option>
+              <option value="25">Brazil</option>
+              <option value="123">Netherlands</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="deposit_type" class="col-6 col-form-label-lg text-center rounded">Deposit Type</label> 
+          <div class="col-6">
+            <select id="deposit_type" name="deposit_type" required="required" class="custom-select custom-select-lg">
+              <option value="0">No Deposit</option>
+              <option value="1">Non Refund</option>
+              <option value="2">Refundable</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lead_time" class="col-6 col-form-label-lg text-center">Lead Time (0 - 600) / Waktu antara pemesanan sampai dengan tanggal menginap</label> 
+          <div class="col-6">
+            <input id="lead_time" name="lead_time" placeholder="0-600" type="text" required="required" class="form-control form-control-lg">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="total_of_special_requests" class="col-6 col-form-label-lg text-center label rounded">Total of Special Request</label> 
+          <div class="col-6">
+            <select id="total_of_special_requests" name="total_of_special_requests" required="required" class="custom-select custom-select-lg">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="adr" class="col-6 col-form-label-lg text-center rounded">Average Daily Rate (Euro)</label> 
+          <div class="col-6">
+            <input id="adr" name="adr" placeholder="In-Euro" type="text" required="required" class="form-control form-control-lg">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="market_segment" class="col-6 col-form-label-lg text-center rounded">Market Segment</label> 
+          <div class="col-6">
+            <select id="market_segment" name="market_segment" required="required" class="custom-select custom-select-lg">
+              <option value="0">Aviation</option>
+              <option value="1">Complementary</option>
+              <option value="2">Corporate</option>
+              <option value="3">Direct</option>
+              <option value="4">Groups</option>
+              <option value="5">Offline TA/TO</option>
+              <option value="6">Online TA</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="arrival_date_day_of_month" class="col-6 col-form-label-lg text-center rounded">Arrival Date Day of Month / Tanggal Kedatangan</label> 
+          <div class="col-6">
+            <input id="arrival_date_day_of_month" name="arrival_date_day_of_month" placeholder="1 - 31" type="text" required="required" class="form-control form-control-lg">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="arrival_date_week_number" class="col-6 col-form-label-lg text-center rounded">Arrival Date Week Number / Minggu Kebarapa Saat Kedatangan (1 tahun : 53 minggu)</label> 
+          <div class="col-6">
+            <input id="arrival_date_week_number" name="arrival_date_week_number" placeholder="1 - 53" type="text" required="required" class="form-control form-control-lg">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="stays_in_week_nights" class="col-6 col-form-label-lg text-center rounded">Stays In Week Nights / Jumlah hari menginap saat weekday</label> 
+          <div class="col-6">
+            <input id="stays_in_week_nights" name="stays_in_week_nights" placeholder="0 - 50" type="text" required="required" class="form-control form-control-lg">
+          </div>
+        </div> 
+        <div class="form-group my-auto mx-0">
+          <div class="w-30">
+            <button name="submit" type="submit" class="btn btn-primary btn-lg">Analyze</button>
+          </div>
+        </div>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h2 class="display-5">Analysis Result: {{prediction}}</h2>
+        <p class="lead"></p>
+        <hr class="my-4">
+        <p><b>Country: </b> {{country}}<br>
+            <b>Deposit Type: </b> {{deposit_type}}<br>
+            <b>Lead Time: </b> {{lead_time}}<br>
+            <b>Total of Special Request: </b> {{total_of_special_requests}}<br>
+            <b>Average daily Rate: </b> {{adr}}<br>
+            <b>Market Segment: </b> {{market_segment}}<br>
+            <b>Arrival Date Day of Month / Tanggal Kedatangan: </b> {{arrival_date_day_of_month}}<br>
+            <b>Arrival Date Week Number / Minggu Kebarapa Saat Kedatangan (1 tahun : 53 minggu): </b> {{arrival_date_week_number}}<br>
+            <b>Stays In Week Nights / Jumlah hari menginap saat weekday: </b> {{stays_in_week_nights}}<br></p>
+      </div>
+
+{% endblock content %}

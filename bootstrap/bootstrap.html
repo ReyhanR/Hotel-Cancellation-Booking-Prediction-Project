@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOTSTRAP 101</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <!-- Mulai menyusun halaman disini-->
+    <!-- Bootstrap Class -->
+    <h1>BOOTSTRAP 101</h1>
+
+    <h1 class='display-3'>My Dashboard 3</h1> <!-- nilai class display 1-4 -->
+    <h1 class='display-4'>My Dashboard 4</h1>
+
+    <p class='font-weight-bold'>
+        Font weight bold
+    </p>
+    
+    <p class='font-italic'>
+        Font Italic
+    </p>
+    
+    <p class='text-uppercase'>
+        Text Uppercase
+    </p>
+    
+    <p class='text-lowercase'>
+        TEXT LOWERCASE
+    </p>
+    
+    <p class='text-capitalize'>
+        text capitalize
+    </p>
+
+    <!-- Alignment -->
+
+    <p class="text-justify">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem ratione dolore quos exercitationem culpa assumenda totam aliquam? Eos nam dicta enim veritatis voluptatem, quia adipisci excepturi facilis, quaerat nisi et debitis hic minus sapiente asperiores molestiae perferendis at minima ipsum placeat sint quo error facere? Expedita assumenda architecto quis animi!
+    </p>
+
+    <p class="text-left">
+        (Align text left) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat aspernatur, blanditiis obcaecati maiores eligendi qui? 
+    </p>
+    
+    <p class="text-right">
+        (Align text right) Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt aliquam quidem iste. Expedita, earum illo.
+    </p>
+    
+    <p class="text-center">
+        (Align text center) Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, et neque magni eaque similique voluptatem?
+    </p>
+
+    <!-- Color -->
+
+    <p class="text-primary display-3 font-weight-bold text-center">Text Primary Color</p>
+    <p class="text-secondary font-weight-bold">Text Secondary Color<p>
+    <p class="text-success">Text Success Color</p>
+    <p class="text-danger">Text Danger Color</p>
+    <p class="text-warning">Text Warning Color</p>
+    <p class="text-dark">Text Dark Color</p>
+
+    <!-- Box Model -->
+
+    <!-- Block Element -->
+    <!-- Sebuah element yang memiliki lebar memenuhi tag parent -->
+    <!-- Block element dapat diatur lebar, tinggi dan marginnya -->
+    <!-- 
+        Contoh block element : h1 (1-6), p , div
+     -->
+
+    <!-- Inline Element -->
+    <!-- Sebuah element yang memiliki lebar sesuai konten -->
+    <!-- 
+        Contoh : span, b, i dll
+     -->
+    <!-- 
+        <h1>My Dashboard</h1>
+        ----------------------
+        Tag     : h1
+        Content : My Dashboard
+        element : Tag + Content
+        ----------------------- 
+     -->
+
+     <!-- 
+         Paddding : jarak antara content dengan border
+         class dibawah ini berlaku juga untuk margin (mr, ml, mb, mt )
+         
+         pr : padding-right
+         pl : padding-left
+         pb : padding-bottom
+         pt : padding-top
+         px : padding-left and padding-right
+         py : padding-top and padding-bottom
+         p  : all-side
+
+         Class : p-1 hingga p-5
+      -->
+
+      <!-- Margin Vertical -->
+
+    <div class="bg-primary mb-5">
+        Ini merupakan sebuah konten 1
+    </div>
+    
+    <div class="bg-secondary">
+        Ini merupakan sebuah konten 2
+    </div>
+    
+    <div class="bg-success my-5">
+        Ini merupakan sebuah konten 3
+    </div>
+
+    <!-- Margin horizontal -->
+
+    <div style="width: 300px;" class="d-inline-block bg-primary">
+        Ini merupakan sebuah konten 1
+    </div>
+    
+    <div style="width: 300px;" class="d-inline-block bg-secondary">
+        Ini merupakan sebuah konten 2
+    </div>
+    
+    <div style="width: 300px;" class="mb-5 d-inline-block bg-success">
+        Ini merupakan sebuah konten 3
+    </div>
+
+    <!-- FORM -->
+    
+    <form class="form-group container mb-5">
+        <label for="name">Name :</label><input class="form-control" type="text" id="name">
+        <label for="pass">Password :</label><input class="form-control" type="password" id="pass">
+        <label for="mail">Email :</label><input class="form-control" type="email" id="mail">
+        
+        <select class="form-control mt-3 form">
+            
+            <optgroup label="Merah">
+                <option value="">Merah Maroon</option>
+                <option value="">Merah Muda</option>
+            </optgroup>
+            
+            <optgroup label="Biru">
+                <option value="">Biru Dongker</option>
+                <option value="">Biru Laut</option>
+            </optgroup>
+            
+            <optgroup label="Hijau">
+                <option value="">Hijau Daun</option>
+                <option value="">Hijau Tosca</option>
+            </optgroup>
+            
+        </select>
+
+        <input type="button" value="Click Me" class="btn btn-primary btn-block mt-3">
+        <input type="button" value="Tekan akuh" class="btn btn-outline-primary btn-block">
+        
+        <input type="submit" value="Submit" class="btn btn-outline-primary btn-block">
+        <button class="btn btn-outline-primary btn-block">Button</button>
+
+    </form>
+
+    <!-- GRID dan FLEX -->
+    
+    <!-- GRID -->
+    <!-- 
+        Grid : Membagi element (Parent) menjadi 12 bagian
+        Digunakan untuk menentukan lebar dari element lain (Child) 
+    -->
+    
+    <!-- Parent -->
+    <div class="container">
+        <div style="height: 200px;" class="row bg-secondary">
+            <!-- Child -->
+            <div class="col-4 item bg-primary">Item 1</div>
+            <div class="col-4 item bg-success">Item 2</div>
+            <div class="col-4 item bg-warning">Item 3</div>
+        </div>
+    </div>
+
+    <!-- FLEX -->
+    <!-- 
+        Flex : Digunakan untuk mengatur posisi element (Child)
+    -->
+
+     <!-- Parent -->
+     <div class="container mt-4">
+        <div style="height: 200px;" class="d-flex row justify-content-around bg-secondary">
+            <!-- Child -->
+            <div class="col-3 item bg-primary">Item 1</div>
+            <div class="col-3 item bg-success">Item 2</div>
+            <div class="col-3 item bg-warning">Item 3</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
