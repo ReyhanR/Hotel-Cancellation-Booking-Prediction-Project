@@ -41,10 +41,6 @@ def predict():
         pred = GBModel.predict(scaled_feat)[0]
         pred_proba = GBModel.predict_proba(scaled_feat)
         endresult = f"{round(np.max(pred_proba)*100,2)}% {'(Cancel)' if pred == 1 else '(Not Cancel)'}"
-        #if pred == 0:
-         #   endresult = f"{round(pred_proba.max()*100)}% {'Not Cancel'}"
-        #else:
-        #    endresult = f"{round(pred_proba.max()*100)}% {'Will Cancel'}"
 
         return render_template('prediksi.html', data = input, prediction = endresult,
             country = input['country'], deposit_type = input['deposit_type'], lead_time=input['lead_time'],
