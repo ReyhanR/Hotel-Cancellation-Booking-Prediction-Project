@@ -43,7 +43,7 @@ Precision Score                                                                 
 :----------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------:
 |![model score](https://github.com/ReyhanR/Final_Project_Purwadhika/blob/master/presentation_pic/score_ovsam_precision.png)|![recall score](https://github.com/ReyhanR/Final_Project_Purwadhika/blob/master/presentation_pic/score_ovsam_recall.png)|
 
-**The final choice of this classification model is that I chose the Gradient Boosting Classifier by not oversampling the data as my model.**
+**The final choice of this classification model is that I chose the Gradient Boosting Classifier without oversampling the data as my model.**
 
 ### The Web Apps
 ---
