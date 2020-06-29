@@ -7,7 +7,7 @@
 Hotel industry is one industry that can utilize data and machine learning in helping management to increase revenue. 
 one of them by using machine learning as a tool to take preventive action against the possibility of a consumer to cancel their bookings.
 
-So in this project I use booking data from a hotel in Portugal that is used to take insight and design a simple machine learning model.
+So in this project I was using booking data from a hotel in Portugal that is used to take insight and design a simple machine learning model.
 
 * Dataset Source : Kaggle.com
 
